@@ -15,7 +15,7 @@
 
 }
 span{
-  position: absolute;
+  position:static;
   margin: 50px;
   font-display:fixed;
   
@@ -23,7 +23,7 @@ span{
 h1{
   margin: 4% 60%;
   display: flex;
-  position: absolute;
+  position: fixed;
   background:no-repeat url('../image/comment-icon.svg');
   background-size: 80%;
   width: 40vw;
