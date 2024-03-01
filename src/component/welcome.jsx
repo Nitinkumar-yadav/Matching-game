@@ -13,9 +13,8 @@ export default function Welcome() {
             <div className="sub-screen">
                 <img src={Image} alt="Monkey"/>
             </div>
-            <button onClick={start ? () => setStart(false) : () => setStart(true)}>
-  {start && <Instruction/>}
-</button>
+            <button onClick={start ? () => setStart(false) : () => setStart(true)}/>
+            {start && <Instruction />}
         </div>
     )
 }
