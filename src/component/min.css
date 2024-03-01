@@ -1,0 +1,42 @@
+.main-screen{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../image/02-sec-screen.svg');
+  background-size: cover;
+  font-family: "Nunito Sans", sans-serif;
+}
+.sub-screen{
+  display: flex;
+  width: 10vw;
+  height: 65vh;
+  position: absolute;
+  margin: 13% 42%;
+
+}
+h1{
+  margin: 50px;
+  align-self:auto;
+}
+p{
+  margin: 4% 60%;
+  display: flex;
+  position: absolute;
+  background:no-repeat url('../image/comment-icon.svg');
+  background-size: 80%;
+  width: 40vw;
+  height:40vh;
+  color: #11AEC6;
+  
+}
+
+button{
+  background: url('../image/start-btn.svg');
+  border: none;
+  height: 14vh;
+  width:20vw;
+  position: absolute;
+  flex-direction: row-reverse;
+  background-size: cover;
+  margin: 40% 80%;
+}

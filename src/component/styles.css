@@ -1,9 +1,10 @@
 body {
-    background: #fff;
+  /* background-position:url("/assets/02-sec-screen.svg"); */
     font-family: "Delius", cursive;
   }
   
   .game-board {
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
