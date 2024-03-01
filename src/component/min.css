@@ -14,11 +14,13 @@
   margin: 13% 42%;
 
 }
-h1{
+span{
+  position: absolute;
   margin: 50px;
-  align-self:auto;
+  font-display:fixed;
+  
 }
-p{
+h1{
   margin: 4% 60%;
   display: flex;
   position: absolute;
@@ -27,6 +29,7 @@ p{
   width: 40vw;
   height:40vh;
   color: #11AEC6;
+  align-self:auto;
   
 }
 
