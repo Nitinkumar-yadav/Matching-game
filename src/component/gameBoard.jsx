@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.css";
+import "./CSS/styles.css";
 import Card from "./card";
 import GameOver from "./gameOver";
 
@@ -7,10 +7,7 @@ const GameBoard = () => {
   const cards = [
     "apple",
     "banana",
-    "Orange",
-    "Cheery",
-    "Graph",
-    "Pipeapple",
+    "orange",
   ];
 
   ///////////// HELPER FUNCTION /////////////

@@ -2,9 +2,13 @@
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-image: url('../image/02-sec-screen.svg');
   background-size: cover;
   font-family: "Nunito Sans", sans-serif;
+}
+.allow-icon{
+      margin: 30px;
+      width:10vw;
+      height: 20vh;
 }
 .sub-screen{
   display: flex;
@@ -12,29 +16,25 @@
   height: 65vh;
   position: absolute;
   margin: 13% 42%;
-
 }
 span{
-  position:static;
+  position:absolute;
   margin: 50px;
-  font-display:fixed;
-  
 }
 h1{
+  background-repeat: no-repeat;
   margin: 4% 60%;
   display: flex;
-  position: fixed;
-  background:no-repeat url('../image/comment-icon.svg');
+  position: absolute;
   background-size: 80%;
   width: 40vw;
   height:40vh;
   color: #11AEC6;
   align-self:auto;
-  
 }
 
 button{
-  background: url('../image/start-btn.svg');
+  background: none;
   border: none;
   height: 14vh;
   width:20vw;

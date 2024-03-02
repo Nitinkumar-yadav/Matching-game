@@ -1,8 +1,4 @@
-body {
-  /* background-position:url("/assets/02-sec-screen.svg"); */
-    font-family: "Delius", cursive;
-  }
-  
+
   .game-board {
     
     display: flex;
