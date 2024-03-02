@@ -7,10 +7,16 @@ import Home from './component/page/home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+<<<<<<< HEAD
   // <React.StrictMode>
     // <App />
     <Home/>
   // </React.StrictMode>
+=======
+ // <React.StrictMode>
+    <App />
+//  </React.StrictMode>
+>>>>>>> 8c3412015535ddb23ffa24a106505420d33827f1
 );
 
 reportWebVitals();
