@@ -2,7 +2,7 @@
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-size: cover;
+  background-size: contain ;
   font-family: "Nunito Sans", sans-serif;
 }
 .allow-icon{
@@ -33,7 +33,7 @@ h1{
   align-self:auto;
 }
 
-button{
+.button{
   background: none;
   border: none;
   height: 14vh;

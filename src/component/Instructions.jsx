@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Bg from '../image/02-sec-screen.svg';
+import './CSS/min.css'
 import Image from '../image/open-month-monkey.svg';
 import Allow from '../image/allow.svg';
 import nextBtn from '../image/next-btn.svg';
@@ -9,11 +10,13 @@ import Begin from './Begin';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Instructions({ currentScreen, onBack }) {
+export default function Instructions({ currentScreen,onNext, onBack }) {
   const [next, setNext] = useState(false);
-  // const navigate = useNavigate();
+
+  const handleNext = () => {
+    onNext();
+  };
   const handleBack = () => {
-    // navigate('')
     onBack();
   };
 
@@ -32,9 +35,9 @@ export default function Instructions({ currentScreen, onBack }) {
       <div className="sub-screen">
         <img src={Image} alt="Monkey" />
       </div>
-      <button style={{ backgroundImage: `url(${nextBtn})` }} onClick={() => setNext(true)}>
+      <div  className="button"style={{ backgroundImage: `url(${nextBtn})` }} onClick={handleNext}>
         {next && <Begin />}
-      </button>
+      </div>
     </div>
   );
 }

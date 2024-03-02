@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-// import './CSS/min.css';
+import React, { useState, } from 'react';
 import Bg from '../image/02-sec-screen.svg';
 import Image from '../image/open-month-monkey.svg';
 import Allow from '../image/allow.svg';
 import nextBtn from '../image/next-btn.svg';
 import comment from '../image/comment-icon.svg';
-
 
 export default function playGame({ currentScreen, onBack }) {
   const [next, setNext] = useState(false);
@@ -34,4 +32,5 @@ export default function playGame({ currentScreen, onBack }) {
       </button>
     </div>
   );
+
 }
