@@ -1,11 +1,12 @@
 import React from 'react';
-// import './CSS/min.css';
+import './CSS/min.css';
 import Bg from '../image/02-sec-screen.svg';
 import Image from '../image/open-month-monkey.svg';
 import startBtn from '../image/start-btn.svg';
 import comment from '../image/comment-icon.svg';
 
 export default function Welcome(props) {
+  
   const handleClick = () => {
     props.onNext();
   };

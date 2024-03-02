@@ -1,22 +1,33 @@
-import Instructions from './component/Instructions';
 import Welcome from './component/welcome';
+import Instructions from './component/Instructions';
 import Begin from './component/Begin';
-// import './App.css';
+import playGame from './component/playGame';
+import './App.css';
 import { useState } from 'react';
+
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('welcome');
 
   const handleNext = () => {
-    setCurrentScreen('instructions');
+    if (currentScreen === 'welcome') {
+      setCurrentScreen('instructions');
+    } else if (currentScreen === 'instructions') {
+      setCurrentScreen('begins');
+    } else if (currentScreen === 'begins') {
+      setCurrentScreen('playgame');
+    }
   };
 
   const handleBack = () => {
-    setCurrentScreen('begin');
-    setCurrentScreen('welcome');
+    if (currentScreen === 'instructions') {
+      setCurrentScreen('welcome');
+    } else if (currentScreen === 'begins') {
+      setCurrentScreen('instructions');
+    } else if (currentScreen === 'playgame') {
+      setCurrentScreen('begins');
+    }
   };
-
-  
 
   return (
     <div>
@@ -24,8 +35,11 @@ export default function App() {
       {currentScreen === 'instructions' && (
         <Instructions currentScreen={currentScreen} onBack={handleBack} />
       )}
-      {currentScreen === 'begin' && (
+      {currentScreen === 'begins' && (
         <Begin currentScreen={currentScreen} onBack={handleBack} />
+      )}
+      {currentScreen === 'playgame' && (
+        <playGame currentScreen={currentScreen} onBack={handleBack} />
       )}
     </div>
   );

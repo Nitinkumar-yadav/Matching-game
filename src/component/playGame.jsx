@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
+// import './CSS/min.css';
 import Bg from '../image/02-sec-screen.svg';
 import Image from '../image/open-month-monkey.svg';
 import Allow from '../image/allow.svg';
 import nextBtn from '../image/next-btn.svg';
 import comment from '../image/comment-icon.svg';
-import icon from '../image/card/banana.svg';
-import Begin from './Begin';
-import { useNavigate } from 'react-router-dom';
 
 
-export default function Instructions({ currentScreen, onBack }) {
+export default function playGame({ currentScreen, onBack }) {
   const [next, setNext] = useState(false);
-  // const navigate = useNavigate();
+
   const handleBack = () => {
-    // navigate('')
     onBack();
   };
 
@@ -24,10 +21,10 @@ export default function Instructions({ currentScreen, onBack }) {
         src={Allow}
         alt="Back"
         onClick={handleBack}
-        style={{ display: currentScreen === 'instructions' ? 'block' : 'none' }}
+        style={{ display: currentScreen === 'playGame' ? 'block' : 'none' }}
       />
       <h1 style={{ backgroundImage: ` url(${comment})` }}>
-        <span>Hi, I am Mizo! and I love bananas <img style={{width:'45px', height:'45px'}} src={icon}/> </span>
+        <span>Can you help me get some ? </span>
       </h1>
       <div className="sub-screen">
         <img src={Image} alt="Monkey" />
@@ -38,5 +35,3 @@ export default function Instructions({ currentScreen, onBack }) {
     </div>
   );
 }
-
-
