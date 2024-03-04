@@ -45,8 +45,8 @@ export default function Playgame({ currentScreen, onNext, onBack }) {
           </div>
         </div>
       </div>
-      <div className="button" style={{ backgroundImage: `url(${playBtn})` }} onClick={{handleNext}}>
-      </div>
+      <button className="button" style={{ backgroundImage: `url(${playBtn})` }} onClick={handleNext}>
+      </button>
     </div>
   );
 

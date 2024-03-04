@@ -6,7 +6,7 @@ import Allow from '../image/allow.svg';
 import playBtn from '../image/play-btn.svg';
 import Loader from '../image/loader.svg';
 import Card from "./card";
-import GameOver from "./gameOver";
+import GameOver from "./06Screen";
 
 const GameBoard1 = () => {
   const cards = [

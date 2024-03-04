@@ -1,16 +1,16 @@
 import './CSS/card.css';
 import React, { useState, useEffect } from "react";
-import Card from "./Card";
 import Bg from '../image/02-sec-screen.svg';
 import Allow from '../image/allow.svg';
+import icon from '../image/card/red-heart.svg';
 // import Loader from '../image/loader.svg';
-// import GameOver from './gameOver';
+import GameOver from './06Screen';
 
 
 export default function GameBoard({ currentScreen, onBack }) {
   const [cardList, setCardList] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
-  // const [gameOver, setGameOver] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     const cards = [
@@ -65,60 +65,60 @@ export default function GameBoard({ currentScreen, onBack }) {
   const check = () => {
     let updatedCards = [...cardList];
     if (
-            (flippedCards[0].name === "apple" && flippedCards[1].name === "A-letter") ||
-            (flippedCards[0].name === "A-letter" && flippedCards[1].name === "apple")
-          ) {
-            updatedCards[flippedCards[0].index].matched = true;
-            updatedCards[flippedCards[1].index].matched = true;
-            setCardList(updatedCards);
-            setFlippedCards([]);
-            if (updatedCards.every(card => card.matched)) {
-              // setGameOver(true);
-            }
-          } else if (
-            (flippedCards[0].name === "banana" && flippedCards[1].name === "B-letter") ||
-            (flippedCards[0].name === "B-letter" && flippedCards[1].name === "banana")
-          ) {
-            updatedCards[flippedCards[0].index].matched = true;
-            updatedCards[flippedCards[1].index].matched = true;
-            setCardList(updatedCards);
-            setFlippedCards([]);
-            if (updatedCards.every(card => card.matched)) {
-              // setGameOver(true);
-            }
-          } else if (
-            (flippedCards[0].name === "banana" && flippedCards[1].name === "B-letter") ||
-            (flippedCards[0].name === "B-letter" && flippedCards[1].name === "banana")
-          ) {
-            updatedCards[flippedCards[0].index].matched = true;
-            updatedCards[flippedCards[1].index].matched = true;
-            setCardList(updatedCards);
-            setFlippedCards([]);
-            if (updatedCards.every(card => card.matched)) {
-              // setGameOver(true);
-            }
-          } else if (
-            (flippedCards[0].name === "orange" && flippedCards[1].name === "O-letter") ||
-            (flippedCards[0].name === "O-letter" && flippedCards[1].name === "orange")
-          ) {
-            updatedCards[flippedCards[0].index].matched = true;
-            updatedCards[flippedCards[1].index].matched = true;
-            setCardList(updatedCards);
-            setFlippedCards([]);
-            if (updatedCards.every(card => card.matched)) {
-              // setGameOver(true);
-            }
-          } else {
-            setTimeout(() => {
-              updatedCards[flippedCards[0].index].flipped = false;
-              updatedCards[flippedCards[1].index].flipped = false;
-              setCardList(updatedCards);
-              setFlippedCards([]);
-            }, 750);
-          }
-        };
+      (flippedCards[0].name === "apple" && flippedCards[1].name === "A-letter") ||
+      (flippedCards[0].name === "A-letter" && flippedCards[1].name === "apple")
+    ) {
+      updatedCards[flippedCards[0].index].matched = true;
+      updatedCards[flippedCards[1].index].matched = true;
+      setCardList(updatedCards);
+      setFlippedCards([]);
+      if (updatedCards.every(card => card.matched)) {
+        // setGameOver(true);
+      }
+    } else if (
+      (flippedCards[0].name === "banana" && flippedCards[1].name === "B-letter") ||
+      (flippedCards[0].name === "B-letter" && flippedCards[1].name === "banana")
+    ) {
+      updatedCards[flippedCards[0].index].matched = true;
+      updatedCards[flippedCards[1].index].matched = true;
+      setCardList(updatedCards);
+      setFlippedCards([]);
+      if (updatedCards.every(card => card.matched)) {
+        setGameOver(true);
+      }
+    } else if (
+      (flippedCards[0].name === "banana" && flippedCards[1].name === "B-letter") ||
+      (flippedCards[0].name === "B-letter" && flippedCards[1].name === "banana")
+    ) {
+      updatedCards[flippedCards[0].index].matched = true;
+      updatedCards[flippedCards[1].index].matched = true;
+      setCardList(updatedCards);
+      setFlippedCards([]);
+      if (updatedCards.every(card => card.matched)) {
+        setGameOver(true);
+      }
+    } else if (
+      (flippedCards[0].name === "orange" && flippedCards[1].name === "O-letter") ||
+      (flippedCards[0].name === "O-letter" && flippedCards[1].name === "orange")
+    ) {
+      updatedCards[flippedCards[0].index].matched = true;
+      updatedCards[flippedCards[1].index].matched = true;
+      setCardList(updatedCards);
+      setFlippedCards([]);
+      if (updatedCards.every(card => card.matched)) {
+        setGameOver(true);
+      }
+    } else {
+      setTimeout(() => {
+        updatedCards[flippedCards[0].index].flipped = false;
+        updatedCards[flippedCards[1].index].flipped = false;
+        setCardList(updatedCards);
+        setFlippedCards([]);
+      }, 750);
+    }
+  };
 
-  
+
   useEffect(() => {
     if (flippedCards.length === 2) {
       setTimeout(check, 500);
@@ -126,18 +126,17 @@ export default function GameBoard({ currentScreen, onBack }) {
   }, [flippedCards]);
 
   const handleBack = () => {
+    console.log('handleBack');
     onBack();
   };
 
   return (
     <div className="main-screen" style={{ backgroundImage: `url(${Bg})` }}>
-      <div>
-      <img className="allow-icon" src={Allow} alt="Back" onClick={handleBack} style={{ display: currentScreen === 'begins' }} />
+      <img className="allow-icon" src={Allow} alt="Back" onClick={handleBack} style={{ display: currentScreen === 'Playgame' }} />
       {/* <img className="loader" style={{ margin: '10px 10px 10px 100px', height: '5vh' }} src={Loader} alt="Loader" /> */}
-      </div>
       <div className="game-board">
-          {/* {!gameOver && */}
-         { cardList.map((card, index) => (
+        {!gameOver &&
+          cardList.map((card, index) => (
             <Card className="cards"
               key={index}
               id={index}
@@ -146,24 +145,25 @@ export default function GameBoard({ currentScreen, onBack }) {
               matched={card.matched}
               clicked={() => handleClick(card.name, index)}
             />
-            ))}
-            {/* {gameOver && <GameOver restartGame={restartGame} />} */}
-      </div> 
-
-      <div className="game-board">
-        {/* <div style={{ display: 'flex', flexDirection: 'row' }}>
-          {pinkCards.map((card, index) => (
-            <div key={index} style={{ margin: '10px' }}>
-              <img
-                src={card}
-                alt={'Pink Card'}
-                onClick={() => handleCardSelect(card, 'pink')}
-                style={{ width: '100px', height: '100px', cursor: 'pointer' }}
-              />
-            </div>
-          ))} */}
-        {/* </div> */}
+          ))}
+        {gameOver && <GameOver restartGame={restartGame} />}
       </div>
     </div>
   );
 }
+
+const Card = ({ id, name, flipped, matched, clicked }) => {
+  return (
+    <div
+      onClick={() => (flipped ? undefined : clicked(name, id))}
+      className={
+        "card" + (flipped ? " flipped" : "") + (matched ? " matched" : "")
+      }
+    >
+      <div className="back"><img src={icon} /></div>
+      <div className="front">
+        <img alt={name} src={"src/image/card/" + name + ".svg"} />
+      </div>
+    </div>
+  );
+};

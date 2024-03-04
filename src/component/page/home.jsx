@@ -4,6 +4,7 @@ import Instructions from '../02Screen';
 import Begin from '../03Screen';
 import Playgame from '../04Screen';
 import GameBoard from '../05Screen';
+import GameOver from '../06Screen';
 
 
 
@@ -17,7 +18,7 @@ const Home=()=> {
       setCurrentScreen('begins');
     } else if (currentScreen === 'begins') {
       setCurrentScreen('playgame');
-    }else if (currentScreen === 'begins') {
+    }else if (currentScreen === 'playgame') {
       setCurrentScreen('gameboard');
     }
   };
@@ -29,8 +30,8 @@ const Home=()=> {
       setCurrentScreen('instructions');
     } else if (currentScreen === 'playgame') {
       setCurrentScreen('begins');
-    }else if (currentScreen === 'begins') {
-    setCurrentScreen('gameboard');
+    }else if (currentScreen === 'gameboard') {
+    setCurrentScreen('playgame');
     }
   };
 
@@ -46,8 +47,11 @@ const Home=()=> {
       {currentScreen === 'playgame' && (
         <Playgame currentScreen={currentScreen} onNext={handleNext} onBack={handleBack} />
       )}
-            {currentScreen === 'gameboard' && (
+      {currentScreen === 'gameboard' && (
         <GameBoard currentScreen={currentScreen} onNext={handleNext} onBack={handleBack} />
+      )}
+      {currentScreen === 'gameover' && (
+        <GameOver currentScreen={currentScreen} onNext={handleNext} onBack={handleBack} />
       )}
     </div>
   );
