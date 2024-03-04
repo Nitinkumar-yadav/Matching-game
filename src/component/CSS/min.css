@@ -10,9 +10,14 @@
       width:10vw;
       height: 20vh;
 }
+.card-img{
+  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 .sub-screen{
   display: flex;
-  width: 10vw;
+  width: 40vw;
   height: 65vh;
   position: absolute;
   margin: 13% 42%;

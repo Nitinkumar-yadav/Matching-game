@@ -6,7 +6,7 @@ import Allow from '../image/allow.svg';
 import nextBtn from '../image/next-btn.svg';
 import comment from '../image/comment-icon.svg';
 import icon from '../image/card/banana.svg';
-import Begin from './Begin';
+import Begin from './03Screen';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -27,7 +27,7 @@ export default function Instructions({ currentScreen,onNext, onBack }) {
         src={Allow}
         alt="Back"
         onClick={handleBack}
-        style={{ display: currentScreen === 'instructions' ? 'block' : 'none' }}
+        style={{ display: currentScreen === 'instructions'}}
       />
       <h1 style={{ backgroundImage: ` url(${comment})` }}>
         <span>Hi, I am Mizo! and I love bananas <img style={{width:'45px', height:'45px'}} src={icon}/> </span>
@@ -36,7 +36,6 @@ export default function Instructions({ currentScreen,onNext, onBack }) {
         <img src={Image} alt="Monkey" />
       </div>
       <div  className="button"style={{ backgroundImage: `url(${nextBtn})` }} onClick={handleNext}>
-        {next && <Begin />}
       </div>
     </div>
   );

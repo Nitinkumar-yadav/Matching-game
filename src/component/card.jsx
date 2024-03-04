@@ -1,8 +1,6 @@
 import React from "react";
-import Icon from '../image/card/red-heart.svg';
-import apple from '../image/card/apple.svg';
-import banana from '../image/card/banana.svg';
-import orange from '../image/card/orange.svg';
+import icon from '../image/card/red-heart.svg';
+import icon1 from '../image/card/blue-heart.svg';
 
 const Card = ({ id, name, flipped, matched, clicked }) => {
   return (
@@ -12,10 +10,14 @@ const Card = ({ id, name, flipped, matched, clicked }) => {
         "card" + (flipped ? " flipped" : "") + (matched ? " matched" : "")
       }
     >
-      <div className="back"><img src={Icon}/></div>
+      <div className="back"><img src={icon}/></div>
       <div className="front">
-        <img alt={name} src={name? banana : apple} />
+        <img alt={name} src={"src/image/card/" + name + ".svg"}  />
       </div>
+      {/* <div className="back"><img src={icon1}/></div>
+      <div className="front">
+        <img alt={name} src={"src/image/card/" + name + ".svg"} />
+      </div> */}
     </div>
   );
 };

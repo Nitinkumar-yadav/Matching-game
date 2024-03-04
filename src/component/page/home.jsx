@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import Welcome from '../welcome';
-import Instructions from '../Instructions';
-import Begin from '../Begin';
-import playGame from '../playGame';
+import Welcome from '../01Screen';
+import Instructions from '../02Screen';
+import Begin from '../03Screen';
+import Playgame from '../04Screen';
+import GameBoard from '../05Screen';
+
+
 
 const Home=()=> {
-  const [currentScreen, setCurrentScreen] = useState('welcome');
+  const [currentScreen, setCurrentScreen] = useState('gameboard');
 
   const handleNext = () => {
     if (currentScreen === 'welcome') {
@@ -14,6 +17,8 @@ const Home=()=> {
       setCurrentScreen('begins');
     } else if (currentScreen === 'begins') {
       setCurrentScreen('playgame');
+    }else if (currentScreen === 'begins') {
+      setCurrentScreen('gameboard');
     }
   };
 
@@ -24,6 +29,8 @@ const Home=()=> {
       setCurrentScreen('instructions');
     } else if (currentScreen === 'playgame') {
       setCurrentScreen('begins');
+    }else if (currentScreen === 'begins') {
+    setCurrentScreen('gameboard');
     }
   };
 
@@ -36,8 +43,11 @@ const Home=()=> {
       {currentScreen === 'begins' && (
         <Begin currentScreen={currentScreen} onNext={handleNext} onBack={handleBack} />
       )}
-      {currentScreen === 'playGame' && (
-        <playGame currentScreen={currentScreen} onNext={handleNext} onBack={handleBack} />
+      {currentScreen === 'playgame' && (
+        <Playgame currentScreen={currentScreen} onNext={handleNext} onBack={handleBack} />
+      )}
+            {currentScreen === 'gameboard' && (
+        <GameBoard currentScreen={currentScreen} onNext={handleNext} onBack={handleBack} />
       )}
     </div>
   );
