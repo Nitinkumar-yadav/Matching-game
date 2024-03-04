@@ -14,10 +14,6 @@ const Card = ({ id, name, flipped, matched, clicked }) => {
       <div className="front">
         <img alt={name} src={"src/image/card/" + name + ".svg"}  />
       </div>
-      {/* <div className="back"><img src={icon1}/></div>
-      <div className="front">
-        <img alt={name} src={"src/image/card/" + name + ".svg"} />
-      </div> */}
     </div>
   );
 };
