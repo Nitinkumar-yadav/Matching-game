@@ -1,10 +1,12 @@
 import './CSS/card.css';
+import './CSS/min.css';
 import React, { useState, useEffect } from "react";
 import Bg from '../image/02-sec-screen.svg';
 import Allow from '../image/allow.svg';
 import icon from '../image/card/red-heart.svg';
+import playbtn from '../image/play-btn.svg';
 // import Loader from '../image/loader.svg';
-import GameOver from './06Screen';
+// import GameOver from './06Screen';
 
 
 export default function GameBoard({ currentScreen, onBack }) {
@@ -73,7 +75,7 @@ export default function GameBoard({ currentScreen, onBack }) {
       setCardList(updatedCards);
       setFlippedCards([]);
       if (updatedCards.every(card => card.matched)) {
-        // setGameOver(true);
+        setGameOver(true);
       }
     } else if (
       (flippedCards[0].name === "banana" && flippedCards[1].name === "B-letter") ||
@@ -125,6 +127,31 @@ export default function GameBoard({ currentScreen, onBack }) {
     }
   }, [flippedCards]);
 
+  const isGameOver = () => {
+    let done = true;
+    cardList.forEach(card => {
+      if (!card.matched) done = false;
+    });
+    setGameOver(done);
+  };
+
+  const restartGame = () => {
+    setCardList(
+      shuffle(cards).map((name, index) => {
+        return {
+          id: index,
+          name: name,
+          flipped: false,
+          matched: false
+        };
+      })
+    );
+
+    setFlippedCards([]);
+    setGameOver(false);
+  };
+
+
   const handleBack = () => {
     console.log('handleBack');
     onBack();
@@ -146,7 +173,12 @@ export default function GameBoard({ currentScreen, onBack }) {
               clicked={() => handleClick(card.name, index)}
             />
           ))}
-        {gameOver && <GameOver restartGame={restartGame} />}
+        {gameOver && (
+          <div>
+            <h1>Congratulations! You've matched all the cards!</h1>
+            <div onClick={restartGame}><img className='button' src={playbtn}/></div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -167,3 +199,4 @@ const Card = ({ id, name, flipped, matched, clicked }) => {
     </div>
   );
 };
+
