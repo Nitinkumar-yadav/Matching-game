@@ -1,6 +1,6 @@
 import React from "react";
 import icon from '../image/card/red-heart.svg';
-import icon1 from '../image/card/blue-heart.svg';
+
 
 const Card = ({ id, name, flipped, matched, clicked }) => {
   return (

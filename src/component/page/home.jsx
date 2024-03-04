@@ -8,7 +8,7 @@ import GameBoard from '../05Screen';
 
 
 const Home=()=> {
-  const [currentScreen, setCurrentScreen] = useState('gameboard');
+  const [currentScreen, setCurrentScreen] = useState('welcome');
 
   const handleNext = () => {
     if (currentScreen === 'welcome') {
