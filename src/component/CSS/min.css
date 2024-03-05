@@ -42,7 +42,7 @@ h1 {
   width: 40vw;
   height: 40vh;
   color: #11AEC6;
-  align-self: auto;
+  align-self: 10px;
 }
 
 .button {

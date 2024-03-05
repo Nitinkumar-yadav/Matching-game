@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Bg from '../image/02-sec-screen.svg';
 import Allow from '../image/allow.svg';
 import icon from '../image/card/red-heart.svg';
+import comment from '../image/comment-icon.svg';
 import playbtn from '../image/play-btn.svg';
 // import Loader from '../image/loader.svg';
 // import GameOver from './06Screen';
@@ -23,6 +24,20 @@ export default function GameBoard({ currentScreen, onBack }) {
       "orange",
       "O-letter",
     ];
+
+    const shuffle = array => {
+      let currentIndex = array.length,
+        temporaryValue,
+        randomIndex;
+      while (0 !== currentIndex) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+      return array;
+    };
     const shuffledCards = shuffle(cards).map((name, index) => ({
       id: index,
       name: name,
@@ -32,22 +47,6 @@ export default function GameBoard({ currentScreen, onBack }) {
     setCardList(shuffledCards);
   }, []);
 
-  const shuffle = array => {
-    let currentIndex = array.length,
-      temporaryValue,
-      randomIndex;
-
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-  };
 
   const handleClick = (name, index) => {
     if (flippedCards.length === 2 || cardList[index].flipped) return;
@@ -97,7 +96,7 @@ export default function GameBoard({ currentScreen, onBack }) {
       setCardList(updatedCards);
       setFlippedCards([]);
       if (updatedCards.every(card => card.matched)) {
-        setGameOver(true);
+        isGameOver();
       }
     } else if (
       (flippedCards[0].name === "orange" && flippedCards[1].name === "O-letter") ||
@@ -108,7 +107,7 @@ export default function GameBoard({ currentScreen, onBack }) {
       setCardList(updatedCards);
       setFlippedCards([]);
       if (updatedCards.every(card => card.matched)) {
-        setGameOver(true);
+        isGameOver();
       }
     } else {
       setTimeout(() => {
@@ -135,21 +134,21 @@ export default function GameBoard({ currentScreen, onBack }) {
     setGameOver(done);
   };
 
-  const restartGame = () => {
-    setCardList(
-      shuffle(cards).map((name, index) => {
-        return {
-          id: index,
-          name: name,
-          flipped: false,
-          matched: false
-        };
-      })
-    );
+  // const restartGame = () => {
+  //   setCardList(
+  //     shuffle(shuffledCards).map((name, index) => {
+  //       return {
+  //         id: index,
+  //         name: name,
+  //         flipped: false,
+  //         matched: false
+  //       };
+  //     })
+  //   );
 
-    setFlippedCards([]);
-    setGameOver(false);
-  };
+  //   setFlippedCards([]);
+  //   setGameOver(false);
+  // };
 
 
   const handleBack = () => {
@@ -173,9 +172,11 @@ export default function GameBoard({ currentScreen, onBack }) {
             />
           ))}
         {gameOver && (
-          <div>
-            <h1>Congratulations! You've matched all the cards!</h1>
-            <img className='button'onClick={restartGame} src={playbtn}/>
+          <div >
+            <h1 style={{ backgroundImage: ` url(${comment})` }}>
+              <span>Congratulations! You've matched all the cards!</span>
+            </h1>
+            {/* <img className='button'onClick={restartGame} src={playbtn}/> */}
           </div>
         )}
       </div>
