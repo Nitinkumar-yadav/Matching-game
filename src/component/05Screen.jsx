@@ -175,7 +175,7 @@ export default function GameBoard({ currentScreen, onBack }) {
         {gameOver && (
           <div>
             <h1>Congratulations! You've matched all the cards!</h1>
-            <div onClick={restartGame}><img className='button' src={playbtn}/></div>
+            <img className='button'onClick={restartGame} src={playbtn}/>
           </div>
         )}
       </div>
