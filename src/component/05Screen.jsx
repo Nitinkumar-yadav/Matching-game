@@ -160,7 +160,6 @@ export default function GameBoard({ currentScreen, onBack }) {
   return (
     <div className="main-screen" style={{ backgroundImage: `url(${Bg})` }}>
       <img className="allow-icon" src={Allow} alt="Back" onClick={handleBack} style={{ display: currentScreen === 'Playgame' }} />
-      {/* <img className="loader" style={{ margin: '10px 10px 10px 100px', height: '5vh' }} src={Loader} alt="Loader" /> */}
       <div className="game-board">
         {!gameOver &&
           cardList.map((card, index) => (
